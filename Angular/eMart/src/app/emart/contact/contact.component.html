@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+<div class="container">
+  <div style="text-align:center">
+    <h2>Contact Us</h2>
+  </div>
+  <div class="row">
+    <div class="column">
+      <img src="assets/img/contact.png"style="width:100%">
+    </div>
+    <div class="column">
+      <form action="/contact" (ngSubmit)="save()">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." [(ngModel)]="contact.firstName">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." [(ngModel)]="contact.lastName">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your email.." [(ngModel)]="contact.email">
+        
+        <label for="subject">Comment</label>
+        <textarea id="subject" name="subject" placeholder="Write something...."  [(ngModel)]="contact.comment"style="height:170px"></textarea>
+        <button type="submit" class="signup" >Submit</button>
+    
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+</body>
+</html>
+

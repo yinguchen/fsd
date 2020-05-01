@@ -1,0 +1,101 @@
+<div class="dropdown">
+  <button class="btn">Menu</button>
+  <div class="dropdown-content">
+    <a class="nav-link  text-dark" routerLink="/seller-additem">Add Item</a>
+    <a class="nav-link  text-dark" routerLink="/report">Report</a>
+    <a class="nav-link  text-dark" routerLink="/login">Logout</a>
+   </div>
+  </div>
+
+<div class="container-fluid">
+     
+    <div class>
+      <div class="Absolute-Center is-Responsive">
+        <form class="justify-content-center" (ngSubmit)="save()">
+          
+            
+          
+            <legend>PRODUCTS</legend>
+            
+         
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="product_id">PRODUCT ID</label>  
+              <div class="col-md-4">
+              <input id="product_id" name="product_id" placeholder="PRODUCT ID" class="form-control input-md" required="" type="text" [(ngModel)]="ap.id">
+                
+              </div>
+            </div>
+            <br/><br/>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>  
+              <div class="col-md-4">
+              <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text" [(ngModel)]="ap.name">
+                
+              </div>
+            </div>
+            <br/><br/>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="product_name">PRODUCT CATEGORY</label>  
+              <div class="col-md-4">
+              <input id="product_categorie" name="product_categorie" placeholder="" class="form-control input-md" required="" type="text" [(ngModel)]="ap.category">
+                
+              </div>
+            </div>
+            
+            <br/><br/>
+            
+           
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>  
+              <div class="col-md-4">
+              <input id="available_quantity" name="available_quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="text">
+                
+              </div>
+            </div>
+            <br/><br/>
+            
+          
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="product_description">PRODUCT DESCRIPTION</label>
+              <div class="col-md-4">                     
+                <textarea class="form-control" id="product_description" name="product_description"></textarea>
+              </div>
+            </div>
+            
+           <br/><br/>
+        
+        
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="percentage_discount">PERCENTAGE DISCOUNT</label>  
+              <div class="col-md-4">
+              <input id="percentage_discount" name="percentage_discount" placeholder="PERCENTAGE DISCOUNT" class="form-control input-md" required="" type="text" [(ngModel)]="ap.discount">
+                
+              </div>
+            </div>
+            
+           <br/><br/>
+            
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="filebutton">main_image</label>
+              <div class="col-md-4">
+                <input id="filebutton" name="filebutton" class="input-file" type="file">
+              </div>
+            </div>
+            
+           
+         
+            <br/><br/>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="singlebutton"></label>
+              <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">ADD</button>
+              </div>
+              </div>
+         <br/><br/>
+            </form>
+            </div>
+          </div>
+    </div>
+      
+        
+      
