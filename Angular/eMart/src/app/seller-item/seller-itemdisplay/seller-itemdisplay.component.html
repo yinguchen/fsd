@@ -1,0 +1,35 @@
+<div class="dropdown">
+    <button class="btn">Menu</button>
+    <div class="dropdown-content">
+     <a class="nav-link  text-dark" routerLink="/item-list">Item List</a>
+     <a class="nav-link  text-dark" routerLink="/cart-list">Cart</a>
+     <a class="nav-link  text-dark" routerLink="/bill-list">Purchase History</a>
+     <a class="nav-link  text-dark" routerLink="/login">Logout</a>
+   </div>
+  </div>
+  <div class="container">
+    <h3 class="my-4">Edit Item</h3>
+    <div class="row border" style="height:400px">
+      <div class="col-6">
+        <div class="mx-2 my-2">
+          <img class="img-fluid img" src={{item?.image}} alt={{item?.name}} />
+        </div>
+      </div>
+      <div class="col-6 btttn" >
+        <div class="w-100 mx-2 my-2">
+          <h2>Name: </h2>
+          <input type="text" class="form-control" id="name" name="name" value="{{ item?.name }}" />
+          <h4>Price: </h4>
+          <input type="text" class="form-control" id="price" name="price" value="{{ item?.price }}" />
+          <h4>Description: </h4>
+          <input type="text" class="form-control" id="description" name="description" value="{{ item?.description }}" />
+          <h5>Stock: </h5>
+          <input type="text" class="form-control" id="stock" name="stock" value="{{ item?.stock }}" />
+          <br>
+          <button type="button" class="btn btn-danger" (click)="updateItem(item)">
+            Update Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,111 @@
+
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-5">
+            <div class="small text-center text-danger">{{errorMessage}}</div>
+            <div class="card card-align   special-card">
+              
+                <div class="card-header "> 
+                    <h4>LOGIN</h4>
+				</div>
+				<form action=" " #loginForm="ngForm">
+                <div class="card-body ">
+                    Sign in as :
+                    <div class="form-check-inline">
+                        <label for="buyer" class="form-check-label">
+                            <input type="radio" class="form-check-input" id="buyer" [(ngModel)]='sign' value='buyer'
+                                name="radioSign" />
+                            Buyer
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label for="buyer" class="form-check-label">
+                            <input type="radio" class="form-check-input" id="seller" [(ngModel)]='sign' value='seller'
+                                name="radioSign" />
+                            Seller
+                        </label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="username">User Name :</label>
+						<input type="text" class="form-control" id="userName" [(ngModel)]="username" name="username" 
+						required #userName="ngModel"/>
+						<div *ngIf="userName.touched" class="small text-danger">
+							<small *ngIf="userName.errors?.required">
+								
+							</small>
+						</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwor">Password :</label>
+                        <input type="password" class="form-control" id="passwor" [(ngModel)]="password"
+							name="password" required #passwor="ngModel" />
+							<div *ngIf="passwor.touched" class="small text-danger">
+                                <small *ngIf="passwor.errors?.required">
+                                   
+                                </small>
+                            </div>
+                    </div>
+                    <button type="submit" (click)="validate()" [disabled]="!loginForm.valid" class="btn btn">LOGIN</button>
+                </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<!-- 	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="https://icons-for-free.com/iconfiles/png/512/home+page+profile+user+icon-1320184025620798710.png" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Member Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	 -->
