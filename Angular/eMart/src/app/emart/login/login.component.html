@@ -1,4 +1,3 @@
-
 <div class="container mt-5 ">
     <div class="row">
         <div class="col-3"></div>
@@ -17,10 +16,9 @@
                             <input type="radio" class="form-check-input" id="buyer" [(ngModel)]='sign' value='buyer'
                                 name="radioSign" />
                             Buyer
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label for="buyer" class="form-check-label">
+						</label>
+						&nbsp;&nbsp;
+                        <label for="seller" class="form-check-label">
                             <input type="radio" class="form-check-input" id="seller" [(ngModel)]='sign' value='seller'
                                 name="radioSign" />
                             Seller
@@ -32,7 +30,7 @@
 						required #userName="ngModel"/>
 						<div *ngIf="userName.touched" class="small text-danger">
 							<small *ngIf="userName.errors?.required">
-								
+								<b>User Name is Required</b>
 							</small>
 						</div>
                     </div>
@@ -42,7 +40,7 @@
 							name="password" required #passwor="ngModel" />
 							<div *ngIf="passwor.touched" class="small text-danger">
                                 <small *ngIf="passwor.errors?.required">
-                                   
+									<b>Password is Required</b>   
                                 </small>
                             </div>
                     </div>

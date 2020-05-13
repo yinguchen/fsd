@@ -1,12 +1,14 @@
 <div class="dropdown">
   <button class="btn">Menu</button>
   <div class="dropdown-content">
+    <a class="nav-link  text-dark" routerLink="/seller-itemlist">Edit Item</a>
     <a class="nav-link  text-dark" routerLink="/seller-additem">Add Item</a>
     <a class="nav-link  text-dark" routerLink="/report">Report</a>
     <a class="nav-link  text-dark" routerLink="/login">Logout</a>
    </div>
 </div>
-<p>
+<p> 
+
 <div class="set-select" style="width:150px">
     <div class="datepicker-wrapper">
           <my-date-picker placeholder="Start Date" name="StartDate" [options]="myDatePickerOptions"
@@ -48,6 +50,6 @@
     <select (change)="onChangePageSize($event.target.value)">
         <option *ngFor="let pageSize of pageSizes" value="{{pageSize}}">{{pageSize}}</option>
     </select>
-    <span>Total{{tablePageList.length}}Record</span>
+    <span> Total {{tablePageList.length}} Records</span>
 </div>
 </div>

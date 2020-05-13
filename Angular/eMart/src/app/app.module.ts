@@ -19,11 +19,12 @@ import { FooterComponent } from './emart/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SellerItemlistComponent } from './seller-item/seller-itemlist/seller-itemlist.component';
 import { SellerItemdisplayComponent } from './seller-item/seller-itemdisplay/seller-itemdisplay.component';
-import { AddproductComponent } from './seller-item/seller-additem/addproduct.component';
 import { ReportComponent } from './seller-item/report/report.component';
 import { AuthGuardService } from './emart/auth-guard.service';
 import { ContactComponent } from './emart/contact/contact.component';
 import { MyDatePickerModule } from 'mydatepicker';
+import { SellerAdditemComponent } from './seller-item/seller-additem/seller-additem.component';
+import { PropertiesPipe } from './common/pipe/comm.pipe';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,10 @@ import { MyDatePickerModule } from 'mydatepicker';
     FooterComponent,
     SellerItemlistComponent,
     SellerItemdisplayComponent,
-    AddproductComponent,
     ReportComponent,
-    ContactComponent
+    ContactComponent,
+    SellerAdditemComponent,
+    PropertiesPipe
     
   ],
   imports: [

@@ -24,8 +24,8 @@ export class ReportComponent implements OnInit {
 
   //事件
   loadDate(){
-    console.log('this.StartDate:',this.StartDate)
-    console.log('this.EndDate:',this.EndDate)
+    console.log('this.StartDate:',this.StartDate.formatted)
+    console.log('this.EndDate:',this.EndDate.formatted)
   }
   
 

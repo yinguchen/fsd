@@ -18,7 +18,16 @@ export class SellerItemdisplayComponent implements OnInit {
 
   constructor(protected activatedRoute: ActivatedRoute,
     protected emartService: EmartService,
-    protected router: Router) { }
+    protected router: Router) { 
+      this.item={
+        id:0,
+        name:'',
+        price:0,
+        description:'',
+        stock:0
+      }
+
+    }
 
   ngOnInit(): void {
     this.activatedRoute
@@ -41,6 +50,7 @@ export class SellerItemdisplayComponent implements OnInit {
   updateItem(item){
     this.emartService.updateItem(this.item).subscribe(
       (response:any)=>{
+        alert('Item is updated successfully!');
         this.router.navigate(['/seller-itemlist']);
       }
     )

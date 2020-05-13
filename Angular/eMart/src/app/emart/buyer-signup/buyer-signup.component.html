@@ -5,22 +5,22 @@
             <div class="card ">
                 <div class="card-header">Buyer's SignUp</div>
                 <div class="card-body">
-                    <form action="">
+                    <form action=""  #buyerSignupForm="ngForm">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname"
-                                    [(ngModel)]="buyer.username"
-                                        name="firstname" />
+                                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Firstname"
+                                           required #firstname="ngModel" [(ngModel)]="buyer.firstname" />
+                                     <span class="help-block text-danger" *ngIf="!firstname.valid && firstname.touched">The First Name field is required!</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname"
-                                    [(ngModel)]="buyer.lastname"   
-                                    name="lastname" />
+                                    <input type="text" class="form-control" id="lastname"  name="lastname" placeholder="Enter Lastname"
+                                           required #lastname="ngModel" [(ngModel)]="buyer.lastname" />   
+                                           <span class="help-block text-danger" *ngIf="!lastname.valid && lastname.touched">The Last Name field is required!</span>
                                 </div>
                             </div>
                         </div>
@@ -28,10 +28,9 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="email">Email ID</label>
-                                    <input type="email" class="form-control" placeholder="Enter email" 
-                                    [(ngModel)]="buyer.email"
-                                    name="email"
-                                    id="email">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" 
+                                           required email #email="ngModel" [(ngModel)]="buyer.email" /> 
+                                           <span class="help-block text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
                                 </div>
                             </div>
                         </div>
@@ -39,33 +38,32 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="pass" placeholder="Enter password"
-                                    [(ngModel)]="buyer.password"   
-                                    name="password" />
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+                                           required  #password="ngModel" [(ngModel)]="buyer.password" />    
+                                           <span class="help-block text-danger" *ngIf="!password.valid && password.touched">The password field is required!</span>
                                 </div>
                             </div>
 
                             <div class="col">
                                 <div class="form-group">
                                     <label for="confirmpassword">Confirm Password</label>
-                                    <input type="confirm password" class="form-control" id="pass"
-                                        placeholder="Confirm password" 
-                                        [(ngModel)]="buyer.password"
-                                        name="confirm password" />
+                                    <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm password" 
+                                           required  #confirmpassword="ngModel" [(ngModel)]="buyer.password" />  
+                                           <span class="help-block text-danger" *ngIf="!confirmpassword.valid && confirmpassword.touched">Please confirm your password!</span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="mobile no">Mobile No</label>
-                                    <input type="text" class="form-control" id="mobile no" placeholder="Mobile No"
-                                    [(ngModel)]="buyer.mobile"    
-                                    name="mobile" />
+                                    <label for="mobileno">Mobile No</label>
+                                    <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Mobile No"
+                                           required pattern="[\d]*" #mobileno="ngModel" [(ngModel)]="buyer.mobile" />    
+                                           <span class="help-block text-danger" *ngIf="mobileno.errors?.pattern && mobileno.touched">Phone number must only contain digits!</span>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn "(click)=" bsignup()">Sign Up</button>
+                        <button type="submit" class="btn "(click)=" bsignup()" [disabled]="!buyerSignupForm.valid">Sign Up</button>
                     </form>
                 </div>
             </div>

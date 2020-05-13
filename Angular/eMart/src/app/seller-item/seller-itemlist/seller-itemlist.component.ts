@@ -24,6 +24,6 @@ allSitems:any;
     );
   }
 edit(itemId: number){
-    this.router.navigate(['/seller-itemdisplay/'+itemId]);
+  this.router.navigate(['/seller-itemdisplay/'+itemId]);
 }
 }

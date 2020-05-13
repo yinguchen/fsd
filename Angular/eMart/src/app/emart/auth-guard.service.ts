@@ -12,8 +12,8 @@ export class AuthGuardService {
   constructor(protected emartService: EmartService,protected router: Router){}
   canActivate(route:ActivatedRouteSnapshot,state:RouterStateSnapshot):boolean
   {
-    const userExist= !!this.emartService.existBuyer();
-    if(userExist)
+    const userExist= !!this.emartService.existBuyer() || !!this.emartService.existSeller();
+    if(userExist) 
     {
         return true;
       }
@@ -23,5 +23,5 @@ export class AuthGuardService {
       }
   }
           
-      }
+}
  

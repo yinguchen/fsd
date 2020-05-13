@@ -20,7 +20,7 @@ this.seller={
   address: '',
   email: '',
   website: '',
-  contact: 0
+  contact: ''
 }
    }
 
@@ -30,6 +30,7 @@ sellersignup()
 {
   this.emartService.ssignup(this.seller).subscribe(
     (response:any)=>{
+      alert('Seller is registered successfully!');
       this.route.navigate(['/login']);
     }
   )

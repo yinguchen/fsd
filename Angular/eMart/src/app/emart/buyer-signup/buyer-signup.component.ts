@@ -12,7 +12,9 @@ buyer: any;
   constructor(protected emartService:EmartService , protected route: Router) {
     this.buyer={
       id:0,
-      username: '',
+      firstname:'',
+      lastname:'',
+      username:'',
       password:'',
       email:'',
       mobile:'',
@@ -22,9 +24,12 @@ buyer: any;
 
   ngOnInit(): void {
   }
-bsignup(){
+  
+  bsignup(){
+  this.buyer.username = this.buyer.firstname + this.buyer.lastname;
   this.emartService.bsignup(this.buyer).subscribe(
     (response:any)=>{
+      alert('Buyer is registered successfully!');
       this.route.navigate(['/login']);
     }
   )

@@ -12,12 +12,12 @@ import { BuyerSignupComponent } from './emart/buyer-signup/buyer-signup.componen
 import { SellerSignupComponent } from './emart/seller-signup/seller-signup.component';
 import { SellerItemlistComponent } from './seller-item/seller-itemlist/seller-itemlist.component';
 import { SellerItemdisplayComponent } from './seller-item/seller-itemdisplay/seller-itemdisplay.component';
-import { AddproductComponent } from './seller-item/seller-additem/addproduct.component';
+import { SellerAdditemComponent } from './seller-item/seller-additem/seller-additem.component';
 import { ReportComponent } from './seller-item/report/report.component';
 import { AuthGuardService } from './emart/auth-guard.service';
 import { ContactComponent } from './emart/contact/contact.component';
 const routes: Routes = [{
-  path: 'home',
+  path: '',
   component: HomeComponent
 },
 {
@@ -46,7 +46,8 @@ const routes: Routes = [{
 },
 {
   path: 'item-list',
-  component: ItemListComponent
+  component: ItemListComponent,
+  canActivate:[AuthGuardService]
 },
 {
   path: 'cart-list',
@@ -75,7 +76,7 @@ const routes: Routes = [{
 },
 {
   path: 'seller-additem',
-  component: AddproductComponent,
+  component: SellerAdditemComponent,
   canActivate:[AuthGuardService]
 },
 {

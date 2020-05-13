@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
-  sign: string;
+  sign: string = "buyer";
   errorMessage: string;
   currentBuyer: any;
   currentSeller: any;
@@ -55,16 +55,15 @@ export class LoginComponent implements OnInit {
             this.currentSeller = response;
             this.emartService.setSellerAndBills(this.currentSeller);
             if (this.currentSeller.id != 0) {
-              console.log(this.currentSeller.id)
+              console.log(this.currentSeller.id);
               this.loginService.loginSeller(this.currentSeller);
               this.router.navigate(['seller-itemlist']);
             }
             else {
               this.errorMessage = "Invalid Username/Password";
             }
-    }
-  
+          }
         );
-}
-  }
+        }
+        }
 }

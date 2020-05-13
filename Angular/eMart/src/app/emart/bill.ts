@@ -6,5 +6,6 @@ export interface Bill {
     date: Date,
     remarks: string
     items: Item[],
-    amount: number
+    amount: number,
+    allBillDetails: any[]
 }

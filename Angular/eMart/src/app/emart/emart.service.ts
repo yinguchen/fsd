@@ -60,7 +60,10 @@ export class EmartService {
   getCurrentBuyer() {
     return this.currentBuyer;
   }
-
+//----------Retrieving CurrenttSeller------------//
+getCurrenttSeller() {
+  return this.currentSeller;
+}
 //-------------Retrieving particular Item from Database--------//
   getItem(itemId) {
     return this.http.get("http://localhost:8083/buyer-item-service/emart/item/" + itemId);
@@ -92,6 +95,11 @@ export class EmartService {
   existBuyer()
   {
     return this.currentBuyer;
+  }
+
+  existSeller()
+  {
+    return this.currentSeller;
   }
 
 //----------Storing BillDetails------//

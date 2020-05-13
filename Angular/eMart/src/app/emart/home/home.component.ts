@@ -12,8 +12,6 @@ export class HomeComponent implements OnInit {
 
   constructor() {
     this.title="EMART";
-    this.image="C:\Users\Alchemy\Desktop\emart2\src\assets\images.png"
-   
    }
 
   ngOnInit() {
