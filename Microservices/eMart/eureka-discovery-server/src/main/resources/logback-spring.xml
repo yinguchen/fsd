@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+	<contextName>eureka server</contextName>
+	<property name="log.path" value="c:/emart" />
+	<!--Console -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter"> <level>ERROR</level>
+			</filter> -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!--log file -->
+	<appender name="out"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/eureka-out.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/eureka-out.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- keep 90 days' worth of history capped at 4GB total size -->
+			<maxHistory>90</maxHistory>
+			<totalSizeCap>4GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36}
+				- %msg%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+	        <level>INFO</level>
+	        <onMatch>ACCEPT</onMatch>
+	        <onMismatch>DENY</onMismatch>
+   		</filter>
+	</appender>
+	<appender name="err"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/eureka-err.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/eureka-err.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- keep 90 days' worth of history capped at 4GB total size -->
+			<maxHistory>90</maxHistory>
+			<totalSizeCap>4GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36}
+				- %msg%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- only print error log -->
+	        <level>ERROR</level>
+	        <onMatch>ACCEPT</onMatch>
+	        <onMismatch>DENY</onMismatch>
+   		</filter>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="console" />
+		<appender-ref ref="out" />
+		<appender-ref ref="err" />
+	</root>
+
+</configuration>
