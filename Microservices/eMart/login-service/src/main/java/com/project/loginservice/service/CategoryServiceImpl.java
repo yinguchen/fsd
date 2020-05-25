@@ -47,7 +47,9 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		LOG.info("Enterd getSubCategory()");
 		List<SubCategoryPojo> allSubCategoryPojo = new ArrayList<SubCategoryPojo>();
-		Iterable<SubCategoryEntity> allSubCategoryEntity = subCategoryDao.findByCategoryId(categoryId);
+		CategoryEntity category = new CategoryEntity();
+		category.setId(categoryId.intValue());
+		Iterable<SubCategoryEntity> allSubCategoryEntity = subCategoryDao.findByCategoryId(category);
 		Iterator<SubCategoryEntity> itr = allSubCategoryEntity.iterator();
 		while (itr.hasNext()){
 			SubCategoryEntity subCategoryEntity = (SubCategoryEntity) itr.next();
