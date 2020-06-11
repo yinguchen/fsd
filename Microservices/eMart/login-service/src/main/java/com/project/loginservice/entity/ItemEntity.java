@@ -51,7 +51,7 @@ public class ItemEntity {
 	SellerSignupEntity sellerId;
 
 	public ItemEntity(int id, String name, SubCategoryEntity subCategoryId, int price, String description, int stock,
-			String remarks, String image, SellerSignupEntity seller_id) {
+			String remarks, String image, SellerSignupEntity sellerId) {
 		super();
 		this.id = id;
 		this.name = name;

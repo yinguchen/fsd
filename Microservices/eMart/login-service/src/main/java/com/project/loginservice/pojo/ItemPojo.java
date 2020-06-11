@@ -94,11 +94,11 @@ public class ItemPojo {
 		this.image = image;
 	}
 
-	public SellerSignupPojo getSeller_id() {
+	public SellerSignupPojo getSellerId() {
 		return sellerId;
 	}
 
-	public void setSeller_id(SellerSignupPojo sellerId) {
+	public void setSellerId(SellerSignupPojo sellerId) {
 		this.sellerId = sellerId;
 	}
 

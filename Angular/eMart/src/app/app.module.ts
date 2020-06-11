@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemListComponent } from './emart/item/item-list/item-list.component';
@@ -25,6 +25,7 @@ import { ContactComponent } from './emart/contact/contact.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { SellerAdditemComponent } from './seller-item/seller-additem/seller-additem.component';
 import { PropertiesPipe } from './common/pipe/comm.pipe';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PropertiesPipe } from './common/pipe/comm.pipe';
     AppRoutingModule,
     FormsModule,
     MyDatePickerModule,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule
   ],
   
   providers: [AuthGuardService],

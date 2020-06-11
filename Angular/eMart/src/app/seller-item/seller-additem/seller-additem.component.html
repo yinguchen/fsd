@@ -16,43 +16,13 @@
                   <div class="card-header">Add a Item</div>
                   <div class="card-body">
                       <form action="" #sellerAddItemForm="ngForm">
- 
-                        
-                        <!-- <div class="form-group">
-                          <label class="col-sm-3 control-label">学科门类：</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" [(ngModel)]="Profession.subjectCategoryId" name="subjectCategoryId" (change)=" getProfessionCategoryOptions($event.target.value)" >
-                              <option *ngFor="let option1 of subjectCategoryOptions" [value]="option1.professionCode">{{option1.professionName}}</option>
-                            </select>
-                          </div>
-                        </div>
-                
-                        <div class="form-group">
-                          <label class="col-sm-3 control-label">专业类别：</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" [(ngModel)]="Profession.professionCategoryId" name="professionCategoryId" (change)=" getProfessionTitleOptions($event.target.value)">
-                              <option *ngFor="let option2 of professionCategoryOptions" [value]="option2.professionCode">{{option2.professionName}}</option>
-                            </select>
-                          </div>
-                        </div>
-                
-                        <div class="form-group">
-                          <label class="col-sm-3 control-label">专业名称：</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" [(ngModel)]="Profession.majorCode" name="majorCode">
-                              <option *ngFor="let option3 of professionTitleOptions" [value]="option3.professionCode">{{option3.professionName}}</option>
-                            </select>
-                          </div>
-                        </div> -->
 
-
-                        
                           <div class="row">
                               <div class="col">
                                   <div class="form-group">
                                       <label for="category">Category</label>
-                                      <select class="form-control" [(ngModel)]="categoryOptions.id" id="category" name="category" (change)=" getSubCategoryOptions($event.target.value)" >
-                                        <option *ngFor="let option1 of objectKeys(categoryOptions) " value="categoryOptions[option1].id" >{{categoryOptions[option1].name}}</option>
+                                      <select class="form-control"  required [(ngModel)]="categoryOptions.id" id="category" name="category" (change)=" getSubCategoryOptions($event.target.value)" >
+                                        <option *ngFor="let option1 of objectKeys(categoryOptions) " [value]="categoryOptions[option1].id" >{{categoryOptions[option1].name}}</option>
                                       </select>
                                   </div>
                               </div>
@@ -62,8 +32,8 @@
                               <div class="col">
                                   <div class="form-group">
                                       <label for="subcategory">Sub Category</label>
-                                      <select class="form-control" [(ngModel)]="subcategoryOptions.id" id="subcategory" name="subcategory" >
-                                        <option *ngFor="let option2 of objectKeys(subcategoryOptions) " value="subcategoryOptions[option2].id" >{{subcategoryOptions[option2].name}}</option>
+                                      <select class="form-control"  required [(ngModel)]="subcategoryOptions.id" id="subcategory" name="subcategory" >
+                                        <option *ngFor="let option2 of objectKeys(subcategoryOptions) " [value]="subcategoryOptions[option2].id" >{{subcategoryOptions[option2].name}}</option>
                                       </select>
                                    </div>
                               </div>
@@ -74,30 +44,68 @@
                                     <div class="form-group">
                                         <label for="itemName">Item Name</label>
                                         <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Enter itemname" 
-                                               required #itemName="ngModel" [(ngModel)]="seller.itemname"/>
+                                               required #itemName="ngModel" [(ngModel)]="item.name"/>
                                             <span class="help-block text-danger" *ngIf="!itemName.valid && itemName.touched">The Item Name field is required!</span>
                                     </div>
                                 </div>
                             </div>
 
-                          <div class="row"> 
+
+
+                            <div class="weui_cell">
+                              <div class="weui_cell_bd weui_cell_primary">
+                                <div class="weui_uploader">
+                                  <div class="weui_uploader_hd weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">Item Image</div>
+                                  </div>
+                                  <div class="weui_uploader_bd">
+                                    <ul class="weui_uploader_files"> 
+                                      <li class="weui_uploader_file" *ngFor="let path of pciturePaths"  [ngStyle]="{'background-image':'url(http://localhost:55077'+path+')'}"></li>
+                                    </ul>
+                                    <div class="weui_uploader_input_wrp">
+                                      <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif,video/*" ng2FileSelect [uploader]="uploader" (change)="uploadPicture()" multiple/>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="weui_cell">
+                              <div class="weui_cell_bd weui_cell_primary">
+                                <div class="weui_uploader">
+                                  <div class="weui_uploader_hd weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">Item Video</div>
+                                  </div>
+                                  <div class="weui_uploader_bd">
+                                    <div>
+                                        <video controls="controls" width="100%"  height="200"  *ngFor="let path of videoPaths" src="http://localhost:55077/{{path}}">Your browser can't support HTML5 Audio</video>
+                                    </div>
+                                    <div class="weui_uploader_input_wrp">
+                                      <input class="weui_uploader_input" type="file" accept="video/*" ng2FileSelect [uploader]="uploader" (change)="uploadVideo()" multiple/>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                             
+
+                          <!-- <div class="row"> 
                               <div class="col">
                                   <div class="form-group">
                                       <label for="gstin">Item Image</label>
                                       <input type="text" class="form-control" id="gst" name="gst" placeholder="GSTIN"
-                                             required #itemName="ngModel" [(ngModel)]="seller.gst"/>
+                                             required #itemName="ngModel" [(ngModel)]="item.gst"/>
                                              <span class="help-block text-danger" *ngIf="!itemName.valid && itemName.touched">The Item Name field is required!</span>   
                                   </div>
                               </div>
-                          </div>
+                          </div> -->
 
                           <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="postal address">Item Description</label>
-                                    <textarea class="form-control" id="address" rows="3"
-                                        name="address" [(ngModel)]="seller.address"
-                                        placeholder="Enter Address"></textarea>
+                                    <label for="itemDescription">Item Description</label>
+                                    <textarea class="form-control" id="itemDescription" rows="3"
+                                        name="itemDescription" [(ngModel)]="item.description"
+                                        placeholder="Enter Item Description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -105,9 +113,9 @@
                           <div class="row">
                               <div class="col">
                                   <div class="form-group">
-                                      <label for="brief">Item Price</label>
-                                      <input type="text" class="form-control" id="gst" name="gst" placeholder="GSTIN"
-                                             [(ngModel)]="seller.gst"/>
+                                      <label for="itemPrice">Item Price</label>
+                                      <input type="text" class="form-control" id="itemPrice" name="itemPrice"
+                                             [(ngModel)]="item.price"  placeholder="Enter Item Price"/>
                                   </div>
                               </div>
                           </div>
@@ -115,9 +123,9 @@
                           <div class="row">
                               <div class="col">
                                   <div class="form-group">
-                                      <label for="email">Item Stock</label>
-                                      <input type="email" class="form-control" id="email" [(ngModel)]="seller.email" name="email"
-                                      placeholder="Enter email">
+                                      <label for="itemStock">Item Stock</label>
+                                      <input type="text" class="form-control" id="itemStock" name="itemStock" 
+                                      [(ngModel)]="item.stock" placeholder="Enter Item Stock">
                                   </div>
                               </div>
                           </div>

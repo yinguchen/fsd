@@ -1,0 +1,17 @@
+node {  
+stage('git clone') { // for display purposes  
+checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e642dc8f-30d5-4d45-8775-82dba34dc6ba', url: 'https://github.com/yinguchen/eureka.git']]])  
+}  
+stage('Build') {  
+withMaven(  
+maven: 'maven',  
+mavenLocalRepo: '.repository') {  
+bat "mvn clean package -Dmaven.test.skip=true"  
+}  
+}  
+stage('deploy') {
+bat "cd C:/Program Files (x86)/Jenkins/workspace/testPipleline/ && docker build -t eurekaserver ."
+bat "docker run -d -p 4000:8080 eurekaserver"
+bat 'echo hello'
+}  
+}

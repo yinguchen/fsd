@@ -21,7 +21,7 @@ export class AddItemService {
     return this.httpClient.get<AddItem>(`${this.baseUrl}/${id}`);
    }
    add(id:AddItem) : Observable<AddItem >{
-     return this.httpClient.post<AddItem >(this.baseUrl,id);
+     return this.httpClient.post<AddItem >("http://localhost:8083/login-service/emart/additem",id);
    }
 
    getAllCategories() {
@@ -30,4 +30,5 @@ export class AddItemService {
   getSubCategorys(categoryId:number) {
     return this.httpClient.get("http://localhost:8083/login-service/emart/subcategory/"+categoryId);
   }
+
 }

@@ -2,6 +2,7 @@ package com.project.loginservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import com.project.loginservice.dao.ItemDao;
 import com.project.loginservice.entity.ItemEntity;
@@ -21,7 +22,8 @@ public class ItemServiceImpl implements ItemService{
 		SubCategoryEntity subCategory = new SubCategoryEntity();
 		subCategory.setId(itemPojo.getSubCategoryId().getId());
 		SellerSignupEntity seller = new SellerSignupEntity();
-		seller.setId(itemPojo.getSeller_id().getId());
+		seller.setId(itemPojo.getSellerId().getId());
+
 		ItemEntity itemEntity = new ItemEntity(
 				itemPojo.getId(),
 				itemPojo.getName(),
@@ -29,10 +31,11 @@ public class ItemServiceImpl implements ItemService{
 				itemPojo.getPrice(),
 				itemPojo.getDescription(),
 				itemPojo.getStock(),
-				itemPojo.getRemarks(),
+				ObjectUtils.getDisplayString(itemPojo.getRemarks()),
 				itemPojo.getImage(),
 				seller);
 		itemDao.save(itemEntity);
+
 	}
 }
 
